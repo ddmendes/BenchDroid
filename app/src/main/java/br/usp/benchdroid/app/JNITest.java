@@ -1,15 +1,14 @@
 package br.usp.benchdroid.app;
 
-import android.app.Application;
-
-
 /**
  * Created by Nivaldo
  * on 20/05/2014
  */
-public class BenchDroidApplication extends Application {
+public class JNITest {
 
     static {
         System.loadLibrary("BenchDroid");
     }
+
+    public native String test();
 }
