@@ -4,5 +4,7 @@
     <string name="app_name">BenchDroid</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="matmult">matmult</string>
+    <string name="matmult_desc">Matrix multiplication of two 20x20 matrices</string>
 
 </resources>
