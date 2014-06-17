@@ -2,9 +2,12 @@
 <resources>
 
     <string name="app_name">BenchDroid</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="matmult">matmult</string>
-    <string name="matmult_desc">Matrix multiplication of two 20x20 matrices</string>
+
+    <string name="algorithm_title_multMatrix">MultMat</string>
+    <string name="algorithm_title_pi">Pi</string>
+
+    <string name="algorithm_description_multMatrix">Matrix multiplication of two 20x20 matrices</string>
+    <string name="algorithm_description_pi">Calculation of the pi number</string>
 
 </resources>

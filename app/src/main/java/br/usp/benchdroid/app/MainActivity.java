@@ -4,30 +4,32 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import br.usp.benchdroid.app.benchmark.Algorithm;
+import br.usp.benchdroid.app.benchmark.Benchmark;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends ActionBarActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
+    private Benchmark mBenchmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView algorithmsList = (ListView) findViewById(R.id.algorithms_list);
+        // TODO instantiate mBenchmark
 
-        String [][] algorithms = new String[1][];
+        ListView algorithmsList = (ListView) findViewById(android.R.id.list);
+        algorithmsList.setAdapter(new AlgorithmAdapter(this));
+        algorithmsList.setOnItemClickListener(this);
 
-        algorithms[0] = new String[2];
-        algorithms[0][0] = getString(R.string.matmult);
-        algorithms[0][1] = getString(R.string.matmult_desc);
-
-        algorithmsList.setAdapter(new AlgorithmViewAdapter(this, algorithms));
+        findViewById(R.id.algorithm_runAll).setOnClickListener(this);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -45,4 +47,20 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // TODO run a single test
+        long result = mBenchmark.run(Algorithm.values()[position]);
+    }
+
+    @Override
+    public void onClick(View v) {
+        // TODO run all
+
+        Algorithm[] algorithms = Algorithm.values();
+        long result = 0;
+        for (Algorithm a : algorithms) {
+            result += mBenchmark.run(a);
+        }
+    }
 }

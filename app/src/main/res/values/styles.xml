@@ -5,13 +5,4 @@
     <!-- Customize your theme here. -->
     </style>
 
-    <!-- Base application theme. -->
-    <style name="algorithm_name_style" parent="android:TextAppearance.DeviceDefault">
-        <item name="android:textSize">18sp</item>
-    </style>
-
-    <style name="algorithm_description_style" parent="android:TextAppearance.DeviceDefault">
-        <item name="android:textSize">12sp</item>
-    </style>
-
 </resources>
