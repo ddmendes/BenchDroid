@@ -19,6 +19,7 @@ public abstract class Benchmark {
     /*   Para cada entrada no enumerador Algorithm, deverá haver uma função abstrata   */
     /* equivalente aqui declarada e que seja chamada no método run(Benchmark) do enum  */
     /***********************************************************************************/
+    protected abstract void superSwap();
     protected abstract void pi();
     protected abstract void multMatrix();
 }

@@ -2,12 +2,10 @@
 <resources>
 
     <string name="app_name">BenchDroid</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="algorithm_title_multMatrix">MultMat</string>
-    <string name="algorithm_title_pi">Pi</string>
+    <string name="algorithm_runAll">Rodar todos</string>
 
-    <string name="algorithm_description_multMatrix">Matrix multiplication of two 20x20 matrices</string>
-    <string name="algorithm_description_pi">Calculation of the pi number</string>
+    <string name="action_title_runNatively">Rodar nativamente</string>
+    <string name="action_titleCondensed_runNatively">Nativo</string>
 
 </resources>

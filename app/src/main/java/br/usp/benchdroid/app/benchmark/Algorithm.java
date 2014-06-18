@@ -5,6 +5,13 @@ package br.usp.benchdroid.app.benchmark;
  * on 17/06/2014
  */
 public enum Algorithm {
+    SUPER_SWAP {
+        @Override public String getTitle() { return "SuperSwap"; }
+        @Override public String getDescription() { return "Realiza 1 bilhão de trocas"; }
+
+        @Override public void run(Benchmark b) { b.superSwap(); }
+    },
+
     PI {
         @Override public String getTitle() { return "Pi"; }
         @Override public String getDescription() { return "Calcula o número Pi"; }
