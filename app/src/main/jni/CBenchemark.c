@@ -1,4 +1,5 @@
 #include <string.h>
+#include <math.h>
 #include <jni.h>
 
 void Java_br_usp_benchdroid_app_benchmark_CBenchmark_superSwap(JNIEnv* env, jobject self) {
@@ -13,9 +14,44 @@ void Java_br_usp_benchdroid_app_benchmark_CBenchmark_superSwap(JNIEnv* env, jobj
     }
 }
 
+double a(int n){
+       if(n == 0){
+            return 1;
+       }else{
+             return (a(n - 1) + b(n - 1))/2;
+       }
+}
+
+double b(int n){
+       if(n == 0){
+            return 1/sqrt(2);
+       }else{
+             return sqrt(a(n - 1) * b(n - 1));
+       }
+}
+
+double t(int n){
+       if(n == 0){
+            return 0.25;
+       }else{
+             return t(n - 1) - p(n - 1) * pow(a(n - 1) - a(n), 2);
+       }
+}
+
+double p(int n){
+       if(n == 0){
+            return 1;
+       }else{
+             return 2 * p(n - 1);
+       }
+}
+
+double pi(int n){
+       return pow(a(n) + b(n), 2)/(4 * t(n));
+}
+
 void Java_br_usp_benchdroid_app_benchmark_CBenchmark_pi(JNIEnv* env, jobject self) {
-    // TODO
-    jstring example = (*env)->NewStringUTF(env, "This is how you create a Java String!");
+    pi(15);
 }
 
 void Java_br_usp_benchdroid_app_benchmark_CBenchmark_multMatrix(JNIEnv* env, jobject self) {
