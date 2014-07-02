@@ -1,7 +1,22 @@
+#include <sys/resource.h>
+#include <android/log.h>
+#include <sys/time.h>
 #include <string.h>
+#include <stdio.h>
 #include <jni.h>
 
-void Java_br_usp_benchdroid_app_benchmark_CBenchmark_superSwap(JNIEnv* env, jobject self) {
+#define LOGI(...) ((void)__android_log_print(ANDROID_LOG_INFO, "hello-ndk", __VA_ARGS__))
+
+
+jlong Java_br_usp_benchdroid_app_benchmark_Benchmark_getClock(JNIEnv* env, jobject self) {
+    struct rusage self_usage;
+
+    getrusage(RUSAGE_SELF, &self_usage);
+    return (jlong) ( self_usage.ru_utime.tv_sec * 1000 + ( self_usage.ru_utime.tv_usec * 1.0f ) / 1000 );
+}
+
+jdouble Java_br_usp_benchdroid_app_benchmark_CBenchmark_superSwap(JNIEnv* env, jobject self) {
+    jdouble start = Java_br_usp_benchdroid_app_benchmark_Benchmark_getClock(env, self);
     const int limit = 1000*1000*1000; // One billion!
     int a = 10;
     int b = 0;
@@ -11,6 +26,10 @@ void Java_br_usp_benchdroid_app_benchmark_CBenchmark_superSwap(JNIEnv* env, jobj
         a = b;
         b = temp;
     }
+
+    jdouble end = Java_br_usp_benchdroid_app_benchmark_Benchmark_getClock(env, self);
+
+    printf("Time: %d", end - start);
 }
 
 void Java_br_usp_benchdroid_app_benchmark_CBenchmark_pi(JNIEnv* env, jobject self) {
@@ -72,4 +91,9 @@ void Java_br_usp_benchdroid_app_benchmark_CBenchmark_multMatrix(JNIEnv* env, job
         }
     }
 
+}
+
+void Java_br_usp_benchdroid_app_benchmark_CBenchmark_fft(JNIEnv* env, jobject self) {
+    // TODO
+    jstring example = (*env)->NewStringUTF(env, "This is how you create a Java String!");
 }

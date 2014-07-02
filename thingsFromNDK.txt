@@ -1,8 +1,0 @@
-
-Things TO DO
-============
-
-Create libBenchDroid.so
-
-Run <ndk>/ndk-build on project directory
-

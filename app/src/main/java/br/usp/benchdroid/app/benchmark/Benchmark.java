@@ -6,18 +6,21 @@ package br.usp.benchdroid.app.benchmark;
  */
 public abstract class Benchmark {
 
+    static {
+        System.loadLibrary("BenchDroid");
+    }
+
     public long run(Algorithm type) {
-        long initialTime = System.currentTimeMillis();
-//        startCounting();
+//        long initialTime = System.currentTimeMillis();
+        long initialTime = getClock();
         type.run(this);
-//        return stopCounting();
-        long finalTime = System.currentTimeMillis();
+//        long finalTime = System.currentTimeMillis();
+        long finalTime = getClock();
 
         return finalTime - initialTime;
     }
 
-    private native void startCounting();
-    private native long stopCounting();
+    native long getClock();
 
     /***********************************************************************************/
     /*   Para cada entrada no enumerador Algorithm, deverá haver uma função abstrata   */

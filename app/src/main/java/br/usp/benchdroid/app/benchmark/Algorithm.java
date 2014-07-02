@@ -24,6 +24,13 @@ public enum Algorithm {
         @Override public String getDescription() { return "Multiplicação de matrizes 20x20"; }
 
         @Override public void run(Benchmark b) { b.multMatrix(); }
+    },
+
+    FFT {
+        @Override public String getTitle() { return "FFT"; }
+        @Override public String getDescription() { return "Transformação Rápida de Fourrier"; }
+
+        @Override public void run(Benchmark b) { b.fft(); }
     };
 
     public abstract String getTitle();
