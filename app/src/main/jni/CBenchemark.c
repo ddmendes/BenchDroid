@@ -77,12 +77,12 @@ void Java_br_usp_benchdroid_app_benchmark_CBenchmark_pi(JNIEnv* env, jobject sel
 }
 
 void Java_br_usp_benchdroid_app_benchmark_CBenchmark_multMatrix(JNIEnv* env, jobject self) {
-    const int size = 500;
     srand(time(NULL));
+    const int size = 250;
+    int i, j;
     int m1[size][size];
     int m2[size][size];
     int mr[size][size];
-    int i, j;
 
     for(i = 0; i < size; i++) {
         for(j = 0; j < size; j++) {
@@ -102,13 +102,13 @@ void Java_br_usp_benchdroid_app_benchmark_CBenchmark_multMatrix(JNIEnv* env, job
 void Java_br_usp_benchdroid_app_benchmark_CBenchmark_fft(JNIEnv* env, jobject self) {
     srand(time(NULL));
     int i;
-    const int size = 10000;
+    const int size = 50 * 1000;
     double real[size];
     double imag[size];
 
     for(i = 0; i < size; i++) {
-        real[i] = rand() % size;
-        imag[i] = rand() % size;
+        real[i] = .1 + (rand() % size);
+        imag[i] = .1 + (rand() % size);
     }
 
     transform(real, imag, size);

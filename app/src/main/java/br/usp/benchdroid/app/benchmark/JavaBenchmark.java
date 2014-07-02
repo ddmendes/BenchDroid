@@ -28,7 +28,7 @@ public class JavaBenchmark extends Benchmark {
     @Override
     protected void multMatrix() {
         Random random = new Random();
-        final int size = 500;
+        final int size = 250;
         int [][] m1 = new int[size][size];
         int [][] m2 = new int[size][size];
         int [][] mr = new int[size][size];
@@ -50,13 +50,13 @@ public class JavaBenchmark extends Benchmark {
     @Override
     protected void fft() {
         Random random = new Random();
-        final int size = 10000;
+        final int size = 50 * 1000;
         double[] real = new double[size];
         double[] imag = new double[size];
 
         for (int i = 0; i < size; i++) {
-            real[i] = random.nextDouble() % size;
-            imag[i] = random.nextDouble() % size;
+            real[i] = .1 + (random.nextDouble() % size);
+            imag[i] = .1 + (random.nextDouble() % size);
         }
 
         Fft.transform(real, imag);
