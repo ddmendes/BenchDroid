@@ -1281,6 +1281,11 @@
       <created>1401561549603</created>
       <updated>1401561549603</updated>
     </task>
+    <task id="LOCAL-00001" summary="multiplicação de matrix (acho) ok!">
+      <created>1404307625685</created>
+      <updated>1404307625685</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1332,6 +1337,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="multiplicação de matrix (acho) ok!" />
+    <option name="LAST_COMMIT_MESSAGE" value="multiplicação de matrix (acho) ok!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
