@@ -95,7 +95,7 @@ public class BenchmarkResultsDialogFragment extends DialogFragment implements Lo
     }
     @Override
     public void onLoadFinished(Loader<Long> loader, Long data) {
-        mTextView.setText(String.format(Locale.getDefault(), "%.2f s", data/1000.));
+        mTextView.setText(String.format(Locale.getDefault(), "%.2f seg", data/1000.));
         mViewAnimator.setDisplayedChild(VIEW_CONTENT);
     }
     @Override public void onLoaderReset(Loader<Long> loader) {}
